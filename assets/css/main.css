@@ -1572,6 +1572,13 @@ section {
   padding-bottom: 10px;
 }
 
+.features .tab-pane h4 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
 .features .tab-pane ul i {
   font-size: 24px;
   margin-right: 4px;
