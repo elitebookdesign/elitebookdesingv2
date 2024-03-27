@@ -246,6 +246,7 @@ section {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+  background: #fff;
 }
 
 .header.sticked {
@@ -643,7 +644,7 @@ section {
   }
 }
 
-.landing-ui .btn-get-started {
+.btn-get-started {
   font-size: 16px;
   font-weight: 400;
   display: inline-block;
@@ -655,8 +656,9 @@ section {
   font-family: var(--font-secondary);
 }
 
-.landing-ui .btn-get-started:hover {
+.btn-get-started:hover {
   background: rgba(var(--color-primary-rgb), 0.8);
+  color: #fff;
 }
 
 .landing-ui .btn-watch-video {
@@ -694,7 +696,7 @@ section {
     margin-bottom: 30px;
   }
 
-  .landing-ui .btn-get-started,
+  .btn-get-started,
   .landing-ui .btn-watch-video {
     font-size: 14px;
   }
@@ -1171,7 +1173,7 @@ section {
   color: var(--color-secondary);
   font-family: var(--font-secondary);
   font-weight: 300;
-  font-size: 32px;
+  font-size: 20px;
   margin-bottom: 20px;
 }
 
@@ -1217,6 +1219,14 @@ section {
   margin: 0;
   font-weight: 700;
   color: var(--color-secondary);
+}
+
+.about .tab-content h6 {
+  color: var(--color-secondary);
+}
+
+.about .tab-content ul li p {
+  font-size: 14px;
 }
 
 .about .tab-content i {
