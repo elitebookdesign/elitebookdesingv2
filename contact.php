@@ -135,6 +135,7 @@
                 <i class="fa fa-paper-plane"></i>
                 <span>SEND</span>
               </a>
+              <input type="submit" name="submit" value="Submit">
             </form>
           </div><!-- End Contact Form -->
 
