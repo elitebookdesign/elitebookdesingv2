@@ -13,7 +13,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set headers
     $headers = "From: $name <$email>";
 
-    console.log($headers)
     // Attempt to send email
     if (mail($to, $subject, $body, $headers)) {
         echo '<p>Your message has been sent successfully!</p>';

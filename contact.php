@@ -113,30 +113,27 @@
 
           <div class="col-lg-8">
             <form class="form-horizontal" method="post" action="./forms/contact.php">
-              <div class="form-group">
-                <div class="col-sm-12 mb-2">
-                  <!-- name  -->
-                  <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="" />
-                </div>
-              </div>
+    <div class="form-group">
+        <div class="col-sm-12 mb-2">
+            <!-- name  -->
+            <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="" />
+        </div>
+    </div>
 
-              <div class="form-group">
-                <div class="col-sm-12 mb-2">
-                  <!-- email  -->
-                  <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="" />
-                </div>
-              </div>
+    <div class="form-group">
+        <div class="col-sm-12 mb-2">
+            <!-- email  -->
+            <input type="email" class="form-control" id="email" placeholder="Email" name="email" value="" />
+        </div>
+    </div>
 
-              <!-- message  -->
-              <textarea class="form-control mb-2" rows="10" placeholder="MESSAGE" name="message">
-      </textarea>
+    <!-- message  -->
+    <textarea class="form-control mb-2" rows="10" placeholder="MESSAGE" name="message"></textarea>
 
-              <a class="btn-get-started" id="submit" type="submit" value="SEND">
-                <i class="fa fa-paper-plane"></i>
-                <span>SEND</span>
-              </a>
-              <input type="submit" name="submit" value="Submit">
-            </form>
+    <!-- Submit button -->
+    <input type="submit" class="btn-get-started" value="SEND">
+</form>
+
           </div><!-- End Contact Form -->
 
         </div>
