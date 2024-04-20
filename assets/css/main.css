@@ -1618,6 +1618,7 @@ section {
 }
 
 .services .img img {
+  height: 267px;
   transition: 0.6s;
 }
 
