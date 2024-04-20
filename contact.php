@@ -112,7 +112,7 @@
           </div>
 
           <div class="col-lg-8">
-            <form class="form-horizontal" method="post" action="forms/contact.php">
+            <form class="form-horizontal" method="post" action="./forms/contact.php">
               <div class="form-group">
                 <div class="col-sm-12 mb-2">
                   <!-- name  -->

@@ -1,42 +1,27 @@
 <?php
-  /**
-  * Requires the "PHP Email Form" library
-  * The "PHP Email Form" library is available only in the pro version of the template
-  * The library should be uploaded to: vendor/php-email-form/php-email-form.php
-  * For more info and help: https://bootstrapmade.com/php-email-form/
-  */
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form field values
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
 
-  // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'dhavlpurohit@gmail.com';
+    // Set up email content
+    $to = 'your@email.com'; // Enter your email address here
+    $subject = 'New message from EliteBookDesign contact form';
+    $body = "Name: $name\n\nEmail: $email\n\nMessage:\n$message";
 
-  $php_email_form = '../assets/vendor/php-email-form/php-email-form.php';
-  if(file_exists($php_email_form)) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+    // Set headers
+    $headers = "From: $name <$email>";
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
-  
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
-
-  // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  /*
-  $contact->smtp = array(
-    'host' => 'example.com',
-    'username' => 'example',
-    'password' => 'pass',
-    'port' => '587'
-  );
-  */
-
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
-  
-  echo $contact->send();
+    // Attempt to send email
+    if (mail($to, $subject, $body, $headers)) {
+        echo '<p>Your message has been sent successfully!</p>';
+    } else {
+        echo '<p>Sorry, there was an error sending your message. Please try again later.</p>';
+    }
+} else {
+    // If the request method is not POST, redirect back to the contact page
+    header("Location: contact.html");
+    exit();
+}
 ?>
