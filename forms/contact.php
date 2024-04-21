@@ -13,6 +13,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Set headers
     $headers = "From: $name <$email>";
 
+    $smtp = Mail::factory('smtp', array(
+        'host' => 'ssl://smtp.gmail.com',
+        'port' => '465',
+        'auth' => true,
+        'username' => 'info@elitebookdesign.com',
+        'password' => 'heyelite'
+    ));
+
+    $mail = $smtp->send($to, $headers, $message);
     // Attempt to send email
     if (mail($to, $subject, $body, $headers)) {
         echo '<p>Your message has been sent successfully!</p>';
