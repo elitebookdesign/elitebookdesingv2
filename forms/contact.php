@@ -1,34 +1,27 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require 'vendor/autoload.php'; // Include PHPMailer library
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Get form field values
     $name = $_POST['name'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    
-    $mail = new PHPMailer(true);
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com'; // Your SMTP host
-        $mail->SMTPAuth = true;
-        $mail->Username = 'info@elitebookdesign.com'; // Your SMTP username
-        $mail->Password = 'heyelite'; // Your SMTP password
-        $mail->SMTPSecure = 'ssl';
-        $mail->Port = 465;
 
-        $mail->setFrom('info@elitebookdesign.com', 'Elite Book Design');
-        $mail->addAddress('info@elitebookdesign.com'); // Send email to your Gmail address
-        $mail->Subject = 'New Form Submission';
-        $mail->Body = "Name: $name\nEmail: $email\nMessage:\n$message";
+    // Set up email content
+    $to = 'support@elitebookdesign.com'; // Enter your email address here
+    $subject = 'New message from EliteBookDesign contact form';
+    $body = "Name: $name\n\nEmail: $email\n\nMessage:\n$message";
 
-        $mail->send();
-        echo 'Thank you for your submission!';
-    } catch (Exception $e) {
-        echo 'Sorry, something went wrong. Please try again later.';
-        //echo 'Mailer Error: ' . $mail->ErrorInfo;
+    // Set headers
+    $headers = "From: $name <$email>";
+
+    // Attempt to send email
+    if (mail($to, $subject, $body, $headers)) {
+        echo '<p>Your message has been sent successfully!</p>';
+    } else {
+        echo '<p>Sorry, there was an error sending your message. Please try again later.</p>';
     }
+} else {
+    // If the request method is not POST, redirect back to the contact page
+    header("Location: contact.php");
+    exit();
 }
 ?>
