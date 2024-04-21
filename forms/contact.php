@@ -16,8 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->SMTPAuth = true;
         $mail->Username = 'info@elitebookdesign.com'; // Your SMTP username
         $mail->Password = 'heyelite'; // Your SMTP password
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port = 465;
 
         $mail->setFrom('info@elitebookdesign.com', 'Elite Book Design');
         $mail->addAddress('info@elitebookdesign.com'); // Send email to your Gmail address
