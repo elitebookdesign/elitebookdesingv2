@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers = "From: $name <$email>";
 
     // Attempt to send email using SMTP
-    require_once "Mail.php"; // Include the Mail class or adjust according to your mail library
+   
     $smtp = Mail::factory('smtp', array(
         'host' => 'ssl://smtp.gmail.com',
         'port' => '465',
