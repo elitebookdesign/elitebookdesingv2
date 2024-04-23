@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Set up email content
     //$to = 'support@elitebookdesign.com'; // Enter your email address here
-    $to = 'info@demo.elitebookdesign.com';
+    $to = 'support@elitebookdesign.com';
     $subject = 'New message from EliteBookDesign contact form';
     $body = "Name: $name\n\nEmail: $email\n\nMessage:\n$message";
 
