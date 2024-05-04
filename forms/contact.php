@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -9,12 +9,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers = "From: $name <$email>";
 
     if (mail($to, $subject, $body, $headers)) {
-        echo '<p>Your message has been sent successfully!</p>';
+        echo '<p>Main Mail successfully!</p>';
     } else {
-        echo '<p>Sorry, there was an error sending your message. Please try again later.</p>';
+        echo '<p>oh Sorry.</p>';
     }
 } else {
-    header("Location: contact.php");
+    header("Location: forms/contact.html");
     exit();
 }
-?> -->
+?>
