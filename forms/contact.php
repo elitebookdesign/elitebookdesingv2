@@ -1,28 +1,47 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Get form field values
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $message = $_POST['message'];
+// Import PHPMailer classes into the global namespace
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-    // Set up email content
-    //$to = 'support@elitebookdesign.com'; // Enter your email address here
-    $to = 'support@elitebookdesign.com';
-    $subject = 'New message from EliteBookDesign contact form';
-    $body = "Name: $name\n\nEmail: $email\n\nMessage:\n$message";
+require_once 'vendor/autoload.php';
 
-    // Set headers
-    $headers = "From: $name <$email>";
+$mail = new PHPMailer(true);
 
-    // Attempt to send email
-    if (mail($to, $subject, $body, $headers)) {
-        echo '<p>Your message has been sent successfully!</p>';
-    } else {
-        echo '<p>Sorry, there was an error sending your message. Please try again later.</p>';
-    }
+//Configure SMTP
+$mail->isSMTP();
+$mail->Host = ‘smtp.gmail.com’;
+$mail->SMTPAuth = true;
+$mail->Username = ‘info@elitebookdesign.com’;
+$mail->Password = ‘App Password’;
+$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+$mail->Port = 587;
+
+// Sender information
+$mail->setFrom('elitebookdesign7@gmail.com', 'Dhaval');
+
+// Receiver email address and name
+$mail->addAddress('info@elitebookdesign.com', 'Elite Book Design'); 
+
+// Add cc or bcc   
+// $mail->addCC('email@mail.com');  
+// $mail->addBCC('user@mail.com');  
+ 
+ 
+$mail->isHTML(true); // Set email format to HTML
+ 
+$mail->Subject = 'PHPMailer SMTP test';
+$mail->Body    = "<h1>PHPMailer the awesome Package</h1>
+                  <p>PHPMailer is working fine for sending mail.</p>
+                  <p>This is a tutorial to guide you on PHPMailer integration.</p>";
+
+// Attempt to send the email
+if (!$mail->send()) {
+    echo 'Email not sent. An error was encountered: ' . $mail->ErrorInfo;
 } else {
-    // If the request method is not POST, redirect back to the contact page
-    header("Location: contact.php");
-    exit();
+    echo 'Message has been sent.';
 }
+
+$mail->smtpClose();
 ?>
+
