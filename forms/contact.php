@@ -1,11 +1,12 @@
 <?php
-use PHPMailer\PHPMailer;
-use PHPMailer\SMTP;
-use PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-require './PHPMailer/PHPMailer.php';
-require './PHPMailer/SMTP.php';
-require './PHPMailer/Exception.php';
+require '/forms/PHPMailer/PHPMailer.php';
+require '/forms/PHPMailer/SMTP.php';
+require '/forms/PHPMailer/Exception.php';
+
 if (isset($_POST['send'])) {
 
 $name = $_POST['name'];
